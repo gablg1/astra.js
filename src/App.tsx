@@ -10,8 +10,13 @@ import type { MyService } from "../server/myService";
 // Create a typed client:
 const client = rpcClient<MyService>("http://localhost:3000/api");
 
-// Call a remote method:
-console.log(await client.hello("world"));
+
+async function hello() {
+  // Call a remote method:
+  console.log(await client.hello("world"));
+}
+
+hello();
 
 function App() {
   return (
