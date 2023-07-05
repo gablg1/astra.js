@@ -2,6 +2,17 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import { rpcClient } from "typed-rpc";
+
+// Import the type (not the implementation!)
+import type { MyService } from "../server/myService";
+
+// Create a typed client:
+const client = rpcClient<MyService>("http://localhost:3000/api");
+
+// Call a remote method:
+console.log(await client.hello("world"));
+
 function App() {
   return (
     <div className="App">
